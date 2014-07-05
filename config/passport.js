@@ -70,6 +70,7 @@ module.exports = function(passport) {
         // by default, local strategy uses username and password, we will override with email
         usernameField : 'email',
         passwordField : 'password',
+        
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     },
     function(req, email, password, done) {
@@ -95,6 +96,8 @@ module.exports = function(passport) {
 
                         newUser.local.email    = email;
                         newUser.local.password = newUser.generateHash(password);
+                        newUser.local.name1=req.body.name1;
+                       
 
                         newUser.save(function(err) {
                             if (err)
@@ -111,6 +114,7 @@ module.exports = function(passport) {
                 var user            = req.user;
                 user.local.email    = email;
                 user.local.password = user.generateHash(password);
+                user.local.name1=req.body.name1;
                 user.save(function(err) {
                     if (err)
                         throw err;
