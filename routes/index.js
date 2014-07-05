@@ -30,7 +30,7 @@ module.exports = function(passport){
 		// LOGIN ===============================
 		// show the login form
 		router.get('/login', function(req, res) {
-			res.render('login', { message: req.flash('loginMessage') });
+			res.render('login', { title: 'login' ,message: req.flash('loginMessage') });
 		});
 
 		// process the login form
@@ -43,7 +43,7 @@ module.exports = function(passport){
 		// SIGNUP =================================
 		// show the signup form
 		router.get('/signup', function(req, res) {
-			res.render('signup', { message: req.flash('signupMessage') });
+			res.render('signup', { title: 'signup', message: req.flash('signupMessage') });
 		});
 
 		// process the signup form

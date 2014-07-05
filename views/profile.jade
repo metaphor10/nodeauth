@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	.container
+		.page-header.text-center
+			h1
+				span.fa.fa-anchor
+				| Profile page
+			a.btn.btn-default.btn-sm(href='/logout') Logout
+		.row
+			//LOCAL INFORMATION
+			.col-sm-6
+				.well
+					h3
+						span.fa.fa-user
+						| Local
+					if user.local.email
+						p
+							strong id : #{user._id}
+							br
+							strong email : #{user.local.email}
+							br
+							strong password : #{user.local.password}
+						a.btn.btn-default(href='/unlink/local') Unlink
+					else
+						a.btn.btn-default(href='/connect/local') Connect local
